@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmis86vnwrcvh"]
+
+[ext_resource type="Script" path="res://Scripts/Record.gd" id="1_1ws2b"]
+[ext_resource type="FontFile" uid="uid://bttr0fcrlc31l" path="res://Sauce/Theme/UbuntuMono-B.ttf" id="1_ivwix"]
+
+[node name="Record" type="HBoxContainer"]
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("1_1ws2b")
+
+[node name="Number" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_fonts/font = ExtResource("1_ivwix")
+theme_override_font_sizes/font_size = 23
+text = "01"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_fonts/font = ExtResource("1_ivwix")
+theme_override_font_sizes/font_size = 23
+text = "00000"
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_fonts/font = ExtResource("1_ivwix")
+theme_override_font_sizes/font_size = 23
+text = "00:00"

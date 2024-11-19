@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://heppkrvoywxk"]
+
+[ext_resource type="Script" path="res://Scripts/Manager.gd" id="1_ytbw7"]
+
+[node name="Manager" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ytbw7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="ReloadGame"]

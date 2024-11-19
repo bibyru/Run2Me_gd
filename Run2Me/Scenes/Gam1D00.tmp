@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://df2sfbj8mbors"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_6x5al"]
+[ext_resource type="PackedScene" uid="uid://bo57tbby6sxkf" path="res://Scenes/Platform.tscn" id="1_y8iq0"]
+[ext_resource type="PackedScene" uid="uid://cjlr5r2gwcxwc" path="res://Scenes/Player.tscn" id="2_7lyps"]
+[ext_resource type="Script" path="res://Scripts/PlatformEater.gd" id="4_p02oo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pd0i"]
+size = Vector2(46, 676)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6x5al")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2(1277, 309)
+
+[node name="Platform" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(-350, 0)
+scale = Vector2(3, 3)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(-700, 0)
+scale = Vector2(3, 3)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(-1050, 0)
+scale = Vector2(3, 3)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(-1400, 0)
+scale = Vector2(3, 3)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(0, 150)
+scale = Vector2(3, 3)
+
+[node name="Player" parent="." instance=ExtResource("2_7lyps")]
+position = Vector2(128, 101)
+scale = Vector2(3, 3)
+
+[node name="PlatformSpeedUp" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="PlatformEater" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_p02oo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformEater"]
+position = Vector2(-267, 328)
+shape = SubResource("RectangleShape2D_3pd0i")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[connection signal="body_entered" from="PlatformEater" to="PlatformEater" method="_on_body_entered"]

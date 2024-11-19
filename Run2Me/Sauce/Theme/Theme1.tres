@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ckls3n86lwtw4"]
+
+[ext_resource type="FontFile" uid="uid://t385ftwdv1a3" path="res://Sauce/Theme/Font_Ubuntu.ttf" id="1_n5myv"]
+[ext_resource type="StyleBox" uid="uid://bxt0wd1afjkmp" path="res://Sauce/Theme/Panel.tres" id="1_r3ts6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gtdo"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("1_n5myv")
+default_font_size = 20
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_6gtdo")
+Button/styles/normal = SubResource("StyleBoxFlat_6gtdo")
+Button/styles/pressed = SubResource("StyleBoxFlat_6gtdo")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+Panel/styles/panel = ExtResource("1_r3ts6")

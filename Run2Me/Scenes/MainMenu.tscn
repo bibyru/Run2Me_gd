@@ -1,0 +1,243 @@
+[gd_scene load_steps=7 format=3 uid="uid://cp7v16h7i4k0y"]
+
+[ext_resource type="Theme" uid="uid://ckls3n86lwtw4" path="res://Sauce/Theme/Theme1.tres" id="1_qelai"]
+[ext_resource type="FontFile" uid="uid://bttr0fcrlc31l" path="res://Sauce/Theme/UbuntuMono-B.ttf" id="2_1b4so"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="2_uy0cp"]
+[ext_resource type="PackedScene" uid="uid://c863tjo2wrk5t" path="res://Sauce/Theme/MyButton.tscn" id="3_t3oca"]
+[ext_resource type="PackedScene" uid="uid://df2sfbj8mbors" path="res://Scenes/Game.tscn" id="4_exd5b"]
+[ext_resource type="StyleBox" uid="uid://c6fdyu308vtdx" path="res://Sauce/Theme/PanelInner.tres" id="5_ukwbi"]
+
+[node name="World" type="Node2D"]
+process_mode = 3
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="MainMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qelai")
+script = ExtResource("2_uy0cp")
+
+[node name="TitleContainer" type="Panel" parent="MainMenu/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -241.0
+offset_right = -70.0
+offset_bottom = 59.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Title" type="HBoxContainer" parent="MainMenu/Control/TitleContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -119.0
+offset_right = 89.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="Label" type="Label" parent="MainMenu/Control/TitleContainer/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.961667, 0.54, 1, 1)
+theme_override_fonts/font = ExtResource("2_1b4so")
+theme_override_font_sizes/font_size = 60
+text = "Run"
+
+[node name="Label2" type="Label" parent="MainMenu/Control/TitleContainer/Title"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1b4so")
+theme_override_font_sizes/font_size = 60
+text = "2"
+
+[node name="Label3" type="Label" parent="MainMenu/Control/TitleContainer/Title"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0, 1)
+theme_override_fonts/font = ExtResource("2_1b4so")
+theme_override_font_sizes/font_size = 60
+text = "Me"
+
+[node name="Buttons" type="VBoxContainer" parent="MainMenu/Control/TitleContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -46.0
+offset_right = 66.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Play" parent="MainMenu/Control/TitleContainer/Buttons" instance=ExtResource("3_t3oca")]
+layout_mode = 2
+focus_mode = 0
+text = "Play"
+
+[node name="Scores" parent="MainMenu/Control/TitleContainer/Buttons" instance=ExtResource("3_t3oca")]
+layout_mode = 2
+focus_mode = 0
+text = "Scores"
+
+[node name="Settings" parent="MainMenu/Control/TitleContainer/Buttons" instance=ExtResource("3_t3oca")]
+layout_mode = 2
+focus_mode = 0
+text = "Settings"
+
+[node name="Quit" parent="MainMenu/Control/TitleContainer/Buttons" instance=ExtResource("3_t3oca")]
+layout_mode = 2
+focus_mode = 0
+text = "Quit"
+
+[node name="ControlsContainer" type="Panel" parent="MainMenu/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -463.0
+offset_top = 80.0
+offset_right = -64.0
+offset_bottom = 226.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/Control/ControlsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MainMenu/Control/ControlsContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_ukwbi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "CONTROLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsContainer" type="HBoxContainer" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Move" type="VBoxContainer" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer/ControlsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer/ControlsContainer/Move"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Move"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer/ControlsContainer/Move"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+text = "WASD, Space"
+horizontal_alignment = 1
+
+[node name="Shoot" type="VBoxContainer" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer/ControlsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer/ControlsContainer/Shoot"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Shoot"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MainMenu/Control/ControlsContainer/MarginContainer/Panel/VBoxContainer/ControlsContainer/Shoot"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.099986, 0.099986, 0.099986, 1)
+text = "LMB, J, Ctrl, Shift"
+horizontal_alignment = 1
+
+[node name="RecordsContainer" type="Panel" parent="MainMenu/Control"]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 85.0
+offset_right = 786.0
+offset_bottom = 378.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/Control/RecordsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MainMenu/Control/RecordsContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_ukwbi")
+
+[node name="Label" type="Label" parent="MainMenu/Control/RecordsContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 12.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "SCORES"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/Control/RecordsContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 53.0
+offset_right = -16.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="MainMenu/Control/RecordsContainer/MarginContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+vertical = true
+
+[node name="Game" parent="." instance=ExtResource("4_exd5b")]
+
+[connection signal="pressed" from="MainMenu/Control/TitleContainer/Buttons/Play" to="MainMenu/Control" method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/Control/TitleContainer/Buttons/Scores" to="MainMenu/Control" method="_on_scores_pressed"]
+[connection signal="pressed" from="MainMenu/Control/TitleContainer/Buttons/Quit" to="MainMenu/Control" method="_on_quit_pressed"]

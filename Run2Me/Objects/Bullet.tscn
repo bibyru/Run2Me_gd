@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwk2fi58oglj4"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_ak8r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1fur"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ow57p"]
+load_path = "res://.godot/imported/Bullet.png-2a0dac2b2a0d952995483f869dd158fb.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kudh"]
+size = Vector2(8, 8)
+
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ak8r4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j1fur")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("CompressedTexture2D_ow57p")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8kudh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

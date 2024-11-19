@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmraoiypjplne"]
+
+[ext_resource type="Script" path="res://Scripts/Lives.gd" id="1_al3fr"]
+[ext_resource type="Texture2D" uid="uid://vd7iieh6gjcs" path="res://Sauce/Characters/PinkMan-Head.png" id="1_vmeti"]
+
+[node name="Lives" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_al3fr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 17.0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_vmeti")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_vmeti")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_vmeti")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_vmeti")
+stretch_mode = 2

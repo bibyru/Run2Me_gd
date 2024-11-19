@@ -1,0 +1,177 @@
+[gd_scene load_steps=15 format=3 uid="uid://df2sfbj8mbors"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_6x5al"]
+[ext_resource type="PackedScene" uid="uid://bo57tbby6sxkf" path="res://Objects/Platform.tscn" id="1_y8iq0"]
+[ext_resource type="PackedScene" uid="uid://cjlr5r2gwcxwc" path="res://Objects/Player.tscn" id="2_7lyps"]
+[ext_resource type="Script" path="res://Scripts/PlatformParent.gd" id="4_auiaa"]
+[ext_resource type="Script" path="res://Scripts/PlatformEater.gd" id="4_p02oo"]
+[ext_resource type="Script" path="res://Scripts/DeathArea.gd" id="5_kafu7"]
+[ext_resource type="PackedScene" uid="uid://bkxnekbujyuxb" path="res://Objects/Enemy.tscn" id="6_iav7x"]
+[ext_resource type="Texture2D" uid="uid://c7rq8dnfwp5u7" path="res://Sauce/Environment/OceanBG-1.png" id="8_4f1a7"]
+[ext_resource type="Theme" uid="uid://ckls3n86lwtw4" path="res://Sauce/Theme/Theme1.tres" id="8_pv6hy"]
+[ext_resource type="PackedScene" uid="uid://cmraoiypjplne" path="res://Objects/Lives.tscn" id="9_2ghhw"]
+[ext_resource type="FontFile" uid="uid://bttr0fcrlc31l" path="res://Sauce/Theme/UbuntuMono-B.ttf" id="9_hp3cy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4ca1"]
+size = Vector2(89, 910)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13cge"]
+size = Vector2(1181, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pd0i"]
+size = Vector2(46, 676)
+
+[node name="Game" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_6x5al")
+
+[node name="Countdown" type="Timer" parent="."]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Bounds"]
+position = Vector2(-51, 444)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Left"]
+shape = SubResource("RectangleShape2D_p4ca1")
+
+[node name="Left2" type="Area2D" parent="Bounds"]
+position = Vector2(-114, 445)
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("5_kafu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Left2"]
+shape = SubResource("RectangleShape2D_p4ca1")
+
+[node name="Right" type="StaticBody2D" parent="Bounds"]
+position = Vector2(1204, 444)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Right"]
+shape = SubResource("RectangleShape2D_p4ca1")
+
+[node name="Up" type="StaticBody2D" parent="Bounds"]
+position = Vector2(574, -82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Up"]
+shape = SubResource("RectangleShape2D_13cge")
+
+[node name="Down" type="Area2D" parent="Bounds"]
+position = Vector2(579, 814)
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("5_kafu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Down"]
+shape = SubResource("RectangleShape2D_13cge")
+
+[node name="Enemy" parent="." instance=ExtResource("6_iav7x")]
+position = Vector2(1437, 387)
+
+[node name="PlatformEater" type="Area2D" parent="."]
+position = Vector2(152, 0)
+collision_layer = 0
+script = ExtResource("4_p02oo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformEater"]
+position = Vector2(-539, 328)
+shape = SubResource("RectangleShape2D_3pd0i")
+debug_color = Color(1, 1, 0, 0.419608)
+
+[node name="PlatformSpeedUp" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2(1429, 309)
+script = ExtResource("4_auiaa")
+
+[node name="Platform" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(-420, 0)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(-840, 0)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(-1260, 0)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("1_y8iq0")]
+position = Vector2(0, 150)
+
+[node name="Player" parent="." instance=ExtResource("2_7lyps")]
+position = Vector2(119, 109)
+scale = Vector2(3, 3)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_4f1a7")
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="GameUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_pv6hy")
+
+[node name="Score" type="Label" parent="GameUI/Control"]
+layout_mode = 2
+offset_left = 41.0
+offset_top = 583.0
+offset_right = 143.0
+offset_bottom = 629.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.309804)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("9_hp3cy")
+theme_override_font_sizes/font_size = 40
+text = "00000"
+vertical_alignment = 1
+
+[node name="Timer" type="Label" parent="GameUI/Control"]
+layout_mode = 2
+offset_left = 170.0
+offset_top = 583.0
+offset_right = 272.0
+offset_bottom = 629.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.309804)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("9_hp3cy")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+vertical_alignment = 1
+
+[node name="Lives" parent="GameUI/Control" instance=ExtResource("9_2ghhw")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = -68.0
+offset_right = 300.0
+offset_bottom = -68.0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+
+[connection signal="timeout" from="Countdown" to="." method="CountTime"]
+[connection signal="body_entered" from="Bounds/Left2" to="Bounds/Left2" method="_on_body_entered"]
+[connection signal="body_entered" from="Bounds/Down" to="Bounds/Down" method="_on_body_entered"]
+[connection signal="body_entered" from="PlatformEater" to="PlatformEater" method="_on_body_entered"]
+[connection signal="timeout" from="PlatformSpeedUp" to="Platforms" method="GoFaster"]

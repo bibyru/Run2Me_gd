@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo57tbby6sxkf"]
+
+[ext_resource type="Script" path="res://Scripts/Platform.gd" id="1_ldo28"]
+[ext_resource type="Texture2D" uid="uid://cdf0xd8ekk8u3" path="res://Sauce/Environment/PixelAdv1-Grass5.png" id="2_8jkcx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2so"]
+size = Vector2(80, 16)
+
+[node name="Platform" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_mask = 0
+script = ExtResource("1_ldo28")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_8jkcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vc2so")
