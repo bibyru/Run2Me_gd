@@ -11,6 +11,7 @@ func Start():
 	get_tree().paused = false
 	GameUI.visible = true
 	Manager.PlatformSpeedUp(2)
+	$ParallaxPlayer.play("Parallax")
 
 func CountTime():
 	Manager.score += Manager.score_second

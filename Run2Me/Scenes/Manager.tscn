@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://heppkrvoywxk"]
+[gd_scene load_steps=4 format=3 uid="uid://heppkrvoywxk"]
 
 [ext_resource type="Script" path="res://Scripts/Manager.gd" id="1_ytbw7"]
+[ext_resource type="AudioStream" uid="uid://s0mqqptu7f6m" path="res://Sauce/Sounds/BGM_04.mp3" id="2_dr05m"]
+[ext_resource type="AudioStream" uid="uid://gyqqwg48jr3t" path="res://Sauce/Sounds/GameOver.mp3" id="3_7w1ec"]
 
 [node name="Manager" type="Node2D"]
 process_mode = 3
@@ -9,5 +11,14 @@ script = ExtResource("1_ytbw7")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dr05m")
+autoplay = true
+bus = &"Music"
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7w1ec")
+bus = &"Sound"
 
 [connection signal="timeout" from="Timer" to="." method="ReloadGame"]

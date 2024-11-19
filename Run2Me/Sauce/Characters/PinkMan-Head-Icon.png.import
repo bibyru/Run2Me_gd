@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7rq8dnfwp5u7"
-path="res://.godot/imported/OceanBG-1.png-81d72efe3230a1d2802b149661d8d54b.ctex"
+uid="uid://csit6jeqqn42x"
+path="res://.godot/imported/PinkMan-Head-Icon.png-19dfd020cb2f8236fdb408005458f8bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sauce/Environment/OceanBG-1.png"
-dest_files=["res://.godot/imported/OceanBG-1.png-81d72efe3230a1d2802b149661d8d54b.ctex"]
+source_file="res://Sauce/Characters/PinkMan-Head-Icon.png"
+dest_files=["res://.godot/imported/PinkMan-Head-Icon.png-19dfd020cb2f8236fdb408005458f8bb.ctex"]
 
 [params]
 

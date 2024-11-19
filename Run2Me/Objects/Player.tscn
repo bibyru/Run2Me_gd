@@ -1,7 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjlr5r2gwcxwc"]
+[gd_scene load_steps=25 format=3 uid="uid://cjlr5r2gwcxwc"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_tt8am"]
 [ext_resource type="Texture2D" uid="uid://cexymnpsbknbd" path="res://Sauce/Characters/PinkMan.png" id="2_6pte0"]
+[ext_resource type="AudioStream" uid="uid://bxa3u0a05bax5" path="res://Sauce/Sounds/PlayerHurt.mp3" id="3_ghlke"]
+[ext_resource type="AudioStream" uid="uid://b40w1bh5objrm" path="res://Sauce/Sounds/PlayerJump.mp3" id="4_lyq4j"]
+[ext_resource type="AudioStream" uid="uid://dyviwh28q0o87" path="res://Sauce/Sounds/PlayerShoot.mp3" id="5_1uwlm"]
 
 [sub_resource type="Animation" id="Animation_6mn2a"]
 resource_name = "Die"
@@ -235,6 +238,22 @@ one_shot = true
 [node name="ShootingTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Sounds"]
+
+[node name="PlayerHurt" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_ghlke")
+bus = &"Sound"
+
+[node name="PlayerJump" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_lyq4j")
+bus = &"Sound"
+
+[node name="PlayerShoot" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_1uwlm")
+bus = &"Sound"
 
 [connection signal="timeout" from="KnockbackTimer" to="." method="KnockbackTimeout"]
 [connection signal="timeout" from="IframesTimer" to="." method="IframesTimeout"]

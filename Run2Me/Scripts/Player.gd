@@ -41,18 +41,21 @@ func KMS():
 		Manager.PlatformSpeedUp(1)
 		$"../Countdown".stop()
 		$"../PlatformSpeedUp".stop()
+		$"../ParallaxPlayer".play("Stop")
 		Manager.GameOver()
 
 func Hurt(by_enemy = false):
 	if by_enemy == true:
 		if invincible == false:
 			Manager.lives_left -= 1
+			$Sounds/PlayerHurt.play()
 			Manager.GameParent.DecreaseLives()
 			Knockback()
 		
 	else:
 		Manager.GameParent.DecreaseLives()
 		Manager.lives_left -= 1
+		$Sounds/PlayerHurt.play()
 		if Manager.lives_left <= 0:
 			KMS()
 			return
@@ -88,6 +91,7 @@ func IframesTimeout():
 func Shoot():
 	if ShootingTimer.is_stopped():
 		ShootingTimer.start()
+		$Sounds/PlayerShoot.play()
 		var bullet = bullet_load.instantiate()
 		Manager.GameParent.add_child(bullet)
 		bullet.position = position
@@ -100,6 +104,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = jumpforce * 1000
+			$Sounds/PlayerJump.play()
 		
 		var direction = Input.get_axis("Left", "Right")
 		velocity.x = direction * speed

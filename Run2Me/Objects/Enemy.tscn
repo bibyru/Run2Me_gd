@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkxnekbujyuxb"]
+[gd_scene load_steps=10 format=3 uid="uid://bkxnekbujyuxb"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_dj23c"]
 [ext_resource type="Texture2D" uid="uid://dsn7hcedy4o73" path="res://Sauce/Characters/MaskMan.png" id="2_cweyu"]
+[ext_resource type="AudioStream" uid="uid://dxlgfaw5ewbip" path="res://Sauce/Sounds/EnemyHurt.mp3" id="3_th51n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoijh"]
 size = Vector2(19, 21)
@@ -107,5 +108,11 @@ collision_mask = 2
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_pb54p")
 debug_color = Color(0.830222, 0.00144161, 0.944798, 0.42)
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="EnemyHurt" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_th51n")
+bus = &"Sound"
 
 [connection signal="body_entered" from="Area2D" to="." method="PlayerEnteredArea"]

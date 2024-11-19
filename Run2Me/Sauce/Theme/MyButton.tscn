@@ -1,11 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c863tjo2wrk5t"]
+[gd_scene load_steps=3 format=3 uid="uid://c863tjo2wrk5t"]
 
 [ext_resource type="Script" path="res://Scripts/MyButton.gd" id="1_dnc6n"]
+[ext_resource type="AudioStream" uid="uid://bp4ym0s5ruob" path="res://Sauce/Sounds/Button.mp3" id="2_o0wkg"]
 
 [node name="Button" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Wasd"
 script = ExtResource("1_dnc6n")
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_o0wkg")
+bus = &"Sound"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

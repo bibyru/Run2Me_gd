@@ -35,6 +35,7 @@ func PlatformSpeedUp(platform_movement = 0):
 func GameOver():
 	if $Timer.is_stopped:
 		$Timer.start()
+		$GameOver.play()
 		records.append([score, time, Time.get_datetime_dict_from_system()])
 		score = 0
 		time = 0

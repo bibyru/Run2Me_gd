@@ -1,16 +1,164 @@
-[gd_scene load_steps=15 format=3 uid="uid://df2sfbj8mbors"]
+[gd_scene load_steps=19 format=3 uid="uid://df2sfbj8mbors"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_6x5al"]
 [ext_resource type="PackedScene" uid="uid://bo57tbby6sxkf" path="res://Objects/Platform.tscn" id="1_y8iq0"]
+[ext_resource type="PackedScene" uid="uid://hww1372w4s0v" path="res://Objects/TileOcean.tscn" id="2_5ig4s"]
 [ext_resource type="PackedScene" uid="uid://cjlr5r2gwcxwc" path="res://Objects/Player.tscn" id="2_7lyps"]
+[ext_resource type="Texture2D" uid="uid://i0ds3227rswd" path="res://Sauce/Environment/Yellow.png" id="3_hop2s"]
 [ext_resource type="Script" path="res://Scripts/PlatformParent.gd" id="4_auiaa"]
 [ext_resource type="Script" path="res://Scripts/PlatformEater.gd" id="4_p02oo"]
 [ext_resource type="Script" path="res://Scripts/DeathArea.gd" id="5_kafu7"]
 [ext_resource type="PackedScene" uid="uid://bkxnekbujyuxb" path="res://Objects/Enemy.tscn" id="6_iav7x"]
-[ext_resource type="Texture2D" uid="uid://c7rq8dnfwp5u7" path="res://Sauce/Environment/OceanBG-1.png" id="8_4f1a7"]
 [ext_resource type="Theme" uid="uid://ckls3n86lwtw4" path="res://Sauce/Theme/Theme1.tres" id="8_pv6hy"]
 [ext_resource type="PackedScene" uid="uid://cmraoiypjplne" path="res://Objects/Lives.tscn" id="9_2ghhw"]
 [ext_resource type="FontFile" uid="uid://bttr0fcrlc31l" path="res://Sauce/Theme/UbuntuMono-B.ttf" id="9_hp3cy"]
+
+[sub_resource type="Animation" id="Animation_eudxr"]
+resource_name = "Parallax"
+length = 5.00001
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ocean4:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 384, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ocean4:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ocean3:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 256, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ocean3:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(52, 0, 52, 0, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ocean2:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 128, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ocean2:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(124, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ardii"]
+resource_name = "Stop"
+length = 0.10001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ocean4:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ocean4:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ocean3:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ocean3:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(52, 0, 0, 0, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Ocean2:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Ocean2:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(124, 0, 0, 0, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxy7x"]
+_data = {
+"Parallax": SubResource("Animation_eudxr"),
+"Stop": SubResource("Animation_ardii")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4ca1"]
 size = Vector2(89, 910)
@@ -24,6 +172,29 @@ size = Vector2(46, 676)
 [node name="Game" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_6x5al")
+
+[node name="Ocean2" parent="." instance=ExtResource("2_5ig4s")]
+position = Vector2(0, 124)
+layer_0/tile_data = PackedInt32Array(327679, 2, 1, 393215, 3, 1, 262144, 2, 1, 327680, 3, 1, 262145, 2, 1, 327681, 3, 1, 262146, 2, 1, 327682, 3, 1, 262147, 2, 1, 327683, 3, 1, 262148, 2, 1, 327684, 3, 1, 262149, 2, 1, 327685, 3, 1, 262150, 2, 1, 327686, 3, 1, 262151, 2, 1, 327687, 3, 1, 262152, 2, 1, 327688, 3, 1, 262153, 2, 1, 327689, 3, 1, 262154, 2, 1, 327678, 2, 1, 393214, 3, 1, 327690, 3, 1, 262142, 1, 1, 262143, 1, 1, 196608, 1, 1, 196609, 1, 1, 196610, 1, 1, 196611, 1, 1, 196612, 1, 1, 196613, 1, 1, 196614, 1, 1, 196615, 1, 1, 196616, 1, 1, 196617, 1, 1, 196618, 1, 1, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0)
+
+[node name="Ocean3" parent="." instance=ExtResource("2_5ig4s")]
+position = Vector2(0, 52)
+layer_0/tile_data = PackedInt32Array(327679, 2, 1, 393215, 3, 1, 262144, 2, 1, 327680, 3, 1, 262145, 2, 1, 327681, 3, 1, 262146, 2, 1, 327682, 3, 1, 262147, 2, 1, 327683, 3, 1, 262148, 2, 1, 327684, 3, 1, 262149, 2, 1, 327685, 3, 1, 262150, 2, 1, 327686, 3, 1, 262151, 2, 1, 327687, 3, 1, 262152, 2, 1, 327688, 3, 1, 262153, 2, 1, 327689, 3, 1, 262154, 2, 1, 327678, 2, 1, 393214, 3, 1, 327690, 3, 1, 262142, 2, 0, 262143, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 196618, 2, 0, 262141, 2, 0, 327677, 2, 1, 262140, 2, 0, 327676, 2, 1, 262139, 2, 0, 327675, 2, 1, 262138, 2, 0, 327674, 2, 1)
+
+[node name="Ocean4" parent="." instance=ExtResource("2_5ig4s")]
+layer_0/tile_data = PackedInt32Array(327679, 3, 0, 393215, 3, 1, 262144, 3, 0, 327680, 3, 1, 262145, 3, 0, 327681, 3, 1, 262146, 3, 0, 327682, 3, 1, 262147, 3, 0, 327683, 3, 1, 262148, 3, 0, 327684, 3, 1, 262149, 3, 0, 327685, 3, 1, 262150, 3, 0, 327686, 3, 1, 262151, 3, 0, 327687, 3, 1, 262152, 3, 0, 327688, 3, 1, 262153, 3, 0, 327689, 3, 1, 262154, 3, 0, 327678, 3, 0, 393214, 3, 1, 327690, 3, 1, 327677, 3, 0, 393213, 3, 1, 327676, 3, 0, 393212, 3, 1, 327675, 3, 0, 393211, 3, 1, 327674, 3, 0, 393210, 3, 1)
+
+[node name="Sky" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(577, 263)
+scale = Vector2(19.0313, 9.21875)
+texture = ExtResource("3_hop2s")
+
+[node name="ParallaxPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qxy7x")
+}
 
 [node name="Countdown" type="Timer" parent="."]
 autostart = true
@@ -109,15 +280,6 @@ position = Vector2(0, 150)
 [node name="Player" parent="." instance=ExtResource("2_7lyps")]
 position = Vector2(119, 109)
 scale = Vector2(3, 3)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("8_4f1a7")
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 

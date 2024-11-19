@@ -5,6 +5,7 @@ const gravity = 3
 func Hurt(by_bullet: bool = false):
 	$AnimationPlayer.play("Hurt")
 	if by_bullet == true:
+		$Sounds/EnemyHurt.play()
 		Manager.score += Manager.score_kill
 		Manager.GameParent.UpdateUI()
 		$Area2D.monitoring = false
