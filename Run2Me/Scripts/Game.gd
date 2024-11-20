@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var GameUI = $GameUI
 
+var game_started = false
+
 func _ready():
 	get_tree().paused = true
 	GameUI.visible = false
@@ -9,6 +11,7 @@ func _ready():
 
 func Start():
 	get_tree().paused = false
+	game_started = true
 	GameUI.visible = true
 	Manager.PlatformSpeedUp(2)
 	$ParallaxPlayer.play("Parallax")

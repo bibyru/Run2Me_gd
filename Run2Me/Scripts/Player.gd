@@ -5,7 +5,7 @@ var bullet_load = load("res://Objects/Bullet.tscn")
 const speed = 450
 const jumpforce = -1.35
 
-const knocked = Vector2(-400, -500)
+const knocked = Vector2(-420, -600)
 var invincible = false
 var allow_input = true
 var allow_movement = true
