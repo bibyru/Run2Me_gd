@@ -1,5 +1,5 @@
 ## 📔 Game Description
-![Image of Run2Me main menu](https://github.com/bibyru/bibyru/blob/main/Gifs/Run2Me.JPG)
+![Image of Run2Me main menu](https://github.com/bibyru/bibyru/blob/main/Gifs/Run2Me.gif)
 
 **Run2Me** is a game where the player tries getting over their personal best time and score by surviving the longest! The visual might be cute and wholesome, but the platforming... See it for yourself!
 
